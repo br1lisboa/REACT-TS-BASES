@@ -1,42 +1,12 @@
 import { useReducer } from 'react';
-
-interface CounterState {
-  counter: number,
-  previous: number,
-  changes: number
-}
+import { CounterState } from './interfaces/interfaces';
+import { counterReducer } from './state/counterReducer';
 
 const INITAL_STATE: CounterState = {
   counter: 0,
   previous: 0,
   changes: 0
 }
-
-type CounterAction =
-  | { type: 'increaseBy', payload: { value: number } }
-  | { type: 'reset' }
-
-const counterReducer = (state: CounterState, action: CounterAction): CounterState => {
-
-  switch (action.type) {
-    case 'reset':
-      return {
-        counter: 0,
-        previous: 0,
-        changes: 0
-      }
-    case 'increaseBy':
-      return {
-        counter: state.counter + action.payload.value,
-        previous: state.counter,
-        changes: state.changes + 1
-      }
-    default:
-      return state;
-  }
-
-}
-
 
 export const CounterReducerComponent = () => {
 
@@ -52,7 +22,7 @@ export const CounterReducerComponent = () => {
 
   return (
     <>
-      <h1>CounterReducerComponent</h1>
+      <h1>CounterReducerComponent - Segmentado</h1>
 
       <p>
         Counter: {counter}
