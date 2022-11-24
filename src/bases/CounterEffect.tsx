@@ -6,7 +6,6 @@ const MAXIMUN_COUNT = 10
 export const CounterEffect = () => {
 
   const [counter, setCounter] = useState(5)
-
   const counterElement = useRef<HTMLHeadingElement>(null)
 
   const handleClick = () => {
