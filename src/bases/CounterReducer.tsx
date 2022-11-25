@@ -56,9 +56,7 @@ export const CounterReducerComponent = () => {
 
       <p>
         Counter: {counter}
-        <hr />
         Previous: {previous}
-        <hr />
         Changes: {changes}
       </p>
 

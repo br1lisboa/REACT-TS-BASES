@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { doIncrease, doReset } from './actions/actions';
 import { CounterState } from './interfaces/interfaces';
 import { counterReducer } from './state/counterReducer';
 
@@ -13,24 +14,24 @@ export const CounterReducerComponent = () => {
   const [{ counter, previous, changes }, dispatch] = useReducer(counterReducer, INITAL_STATE)
 
   const handleReset = () => {
-    dispatch({ type: 'reset' })
+    dispatch(doReset())
   }
 
   const increaseBy = (value: number) => {
-    dispatch({ type: 'increaseBy', payload: { value } })
+    dispatch(doIncrease(value))
   }
 
   return (
     <>
       <h1>CounterReducerComponent - Segmentado</h1>
 
-      <p>
+      <div>
         Counter: {counter}
-        <hr />
+
         Previous: {previous}
-        <hr />
+
         Changes: {changes}
-      </p>
+      </div>
 
       <button onClick={handleReset}>
         Reset
